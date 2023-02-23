@@ -1,0 +1,152 @@
+import java.util.Scanner;  
+public class Calculator   
+{  
+public static void main(String[] args)   
+{  
+    
+int numberOfDataPoints;
+int numberOfPlayers;
+
+
+Scanner sc=new Scanner(System.in);  
+System.out.print("Enter the number of data points you want to use: ");  
+//reading the number of data points from the that we want to enter  
+
+numberOfDataPoints = sc.nextInt();  
+
+
+System.out.print("Enter the number of Players you are finding the Z score of: ");  
+//reading the number of data points from the that we want to enter  
+
+numberOfPlayers = sc.nextInt();  
+System.out.println("");
+
+//creates an array in the memory of length 100 (this means that it can only handle 100 data points, change this for more) This must be changed for all values
+
+double[] mean = new double[100];  
+System.out.println("Enter the mean for the data points being used: ");  
+for(int i=0; i<numberOfDataPoints; i++)  
+{  
+    
+//reading array elements from the user   
+mean[i]=sc.nextDouble();  
+}  
+
+System.out.println("");
+
+System.out.println("The means that were input were: ");  
+// accessing array elements using the for loop  
+for (int i=0; i<numberOfDataPoints; i++)   
+{  
+System.out.println(mean[i]);  
+}
+
+System.out.println("");
+//_______________________________________________________
+
+
+double[] SD = new double[100];  
+System.out.println("Enter the Standard deviation for the data points: ");  
+for(int q=0; q<numberOfDataPoints; q++)  
+{  
+    
+//reading array elements from the user   
+SD[q]=sc.nextDouble();  
+}
+
+System.out.println("");
+
+System.out.println("The standard deviations that were input are: ");  
+// accessing array elements using the for loop  
+for (int q=0; q<numberOfDataPoints; q++)   
+{  
+System.out.println(SD[q]);  
+}
+
+
+System.out.println("");
+//_______________________________________________________
+
+
+
+for (int numberOfIterations = 1; numberOfIterations >= 0; numberOfIterations++){  
+    
+    
+
+    
+double[] performance = new double[100];
+System.out.println("Enter the Performance values of the data points : ");  
+for(int w=0; w<numberOfDataPoints; w++)  
+{  
+    
+//reading array elements from the user   
+performance[w]=sc.nextDouble();  
+}
+
+
+System.out.println("");
+
+System.out.println("The input performance values are: ");  
+// accessing array elements using the for loop  
+for (int w=0; w<numberOfDataPoints; w++)   
+{  
+System.out.println(SD[w]);  
+}
+
+
+System.out.println("");
+//_______________________________________________________
+
+System.out.println("The Zscore's for this player are: "); 
+
+double[] Zscore = new double[100];
+for(int r=0; r<numberOfDataPoints; r++)  
+{  
+    
+//Making a Zscore calculator, takes the performance minus the mean, then divide by the Standard Deviation   
+Zscore[r]=(performance[r] - mean[r]) / SD[r];  
+}  
+
+
+System.out.println("");
+
+for (int e=0; e<numberOfDataPoints; e++)   
+{  
+System.out.println(Zscore[e]);  
+}
+
+
+
+
+System.out.println("");
+//_______________________________________________________
+
+
+double sum = 0;
+int y;
+for (y = 0; y < numberOfDataPoints; y++)
+    {
+    sum += Zscore[y];
+   //System.out.println(sum);
+   }
+       System.out.println("The total Z score is: " + sum);
+
+
+
+
+//_______________________________________________________
+// Ending of the loop
+
+int x = numberOfPlayers - numberOfIterations;
+
+
+System.out.println("you have " + x + " player(s) left");
+System.out.println("");
+    
+    if(x == 0){  
+        break;  
+        }  
+    }
+    
+    }
+}
